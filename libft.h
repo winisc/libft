@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wini <wini@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 19:33:53 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/14 20:11:25 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/15 23:48:25 by wini             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ char	*ft_strdup(const char *src); //testado
 void	*ft_calloc(size_t nmemb, size_t size);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+char    *ft_itoa(int n);
 
 #endif
