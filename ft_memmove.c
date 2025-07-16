@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 16:30:10 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/12 15:53:23 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/16 10:47:30 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,5 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
 		i++;
 	}
-	i = n;
 	return (dest);
 }

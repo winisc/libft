@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:35:51 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/14 16:51:59 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/16 17:58:56 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	i = 0;
 	if (little[0] == 0)
-		return ((char *)big + i);
+		return ((char *)big);
 	while (i < len && big[i])
 	{
 		if (little[0] == big[i])
@@ -32,5 +32,5 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

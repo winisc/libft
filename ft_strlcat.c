@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_strlcat.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wsilveir <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 17:28:45 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/09 17:28:46 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/16 13:15:40 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,8 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	size_t	size_dest;
 	size_t	size_src;
 
-	i = 0;
-	while (dest[i])
-		i++;
-	size_dest = i;
-	i = 0;
-	while (src[i])
-		i++;
-	size_src = i;
+	size_dest = ft_strlen(dest);
+	size_src = ft_strlen(src);
 	i = 0;
 	if (size <= size_dest)
 		return (size_src + size);
