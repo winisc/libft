@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 17:28:45 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/16 13:15:40 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/18 17:06:13 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 		dest[size_dest + i] = src[i];
 		i++;
 	}
-	dest[size_dest + i] = '\0';
+	dest[size_dest + i] = 0;
 	return (size_dest + size_src);
 }

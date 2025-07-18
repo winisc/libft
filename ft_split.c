@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:46:36 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/17 19:51:17 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/18 18:50:20 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ static size_t	count_words(char const *str, char c)
 	len = 0;
 	while (str[i])
 	{
-		if (str[i] == c)
+		if (i == 0 && str[i] != c)
+			len++;
+		if ((str[i] != c && str[i - 1] == c))
 			len++;
 		i++;
 	}
-	len++;
 	return (len);
 }
 
