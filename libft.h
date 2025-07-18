@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 19:33:53 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/16 14:30:17 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/17 20:11:58 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,9 @@ void	*ft_calloc(size_t nmemb, size_t size); //testado
 char	*ft_substr(char const *s, unsigned int start, size_t len); //testado
 char	*ft_itoa(int n); //testado
 char	*ft_strjoin(char const *s1, char const *s2); //testado
-char	*ft_strtrim(char const *s1, char const *set);
+char	*ft_strtrim(char const *s1, char const *set); //testado
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char)); //testado
+void	ft_striteri(char *s, void (*f)(unsigned int, char*)); //testado
+char	**ft_split(char const *s, char c); //testado
 
 #endif

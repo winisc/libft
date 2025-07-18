@@ -3,29 +3,29 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: wsilveir <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/09 13:00:48 by wsilveir          #+#    #+#              #
-#    Updated: 2025/07/09 13:00:49 by wsilveir         ###   ########.fr        #
+#    Updated: 2025/07/17 20:08:15 by wsilveir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-IDIR = includes
 NAME = libft.a
-SRCDIR = srcs
+
+SRCS = $(wildcard *.c)
+OBJS = $(SRCS:.c=.o)
 
 CC = cc
-FLAGS = -Wall -Wextra -Werror -I$(IDIR)
+FLAGS = -Wall -Wextra -Werror
 
-SRCS = $(wildcards *.c)
-OBJS = $(SRCS:.c=.o)
+.PHONY: all clean fclean re
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $@ $^
 
-%.o: $(SRCDIR)/%.c
+%.o: %.c
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
@@ -35,5 +35,3 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
-
-.PHONY: all clean fclean re
