@@ -6,11 +6,12 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:46:36 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/18 18:50:20 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/18 21:11:31 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
 static size_t	count_words(char const *str, char c)
 {
@@ -21,11 +22,14 @@ static size_t	count_words(char const *str, char c)
 	len = 0;
 	while (str[i])
 	{
-		if (i == 0 && str[i] != c)
+		if (str[i] != c)
+		{
 			len++;
-		if ((str[i] != c && str[i - 1] == c))
-			len++;
-		i++;
+			while (str[i] != c)
+				i++;
+		}
+		else
+			i++;
 	}
 	return (len);
 }
@@ -37,23 +41,31 @@ char	**ft_split(char const *s, char c)
 	size_t	start;
 	size_t	j;
 
-	i = 0;
-	j = count_words(s, c);
-	spl = malloc((j + 1) * sizeof(char *));
+	spl = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!spl)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (s[i])
+	while (s[i]) //abc;abc;abc;abc;
 	{
-		while (s[i] == c)
-			i++;
 		start = i;
-		while (s[i] && s[i] != c)
-			i++;
-		if (i > start)
+		if (s[i] != c)
+		{
+			while (s[i] != c)
+				i++;
 			spl[j++] = ft_substr(s, start, i - start);
+		}
+		else
+			i++;
 	}
 	spl[j] = NULL;
 	return (spl);
 }
+
+// int main()
+// {
+// 	char * * tab;
+// 	char * splitme = strdup("Tripouille");
+// 	tab = ft_split(splitme, ' ');
+// 	return 0;
+// }
