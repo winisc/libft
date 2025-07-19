@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wini <wini@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:46:36 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/18 21:11:31 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/19 01:38:19 by wini             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,28 @@ static size_t	count_words(char const *str, char c)
 		if (str[i] != c)
 		{
 			len++;
-			while (str[i] != c)
+			while (str[i] != c && str[i])
 				i++;
 		}
 		else
 			i++;
 	}
 	return (len);
+}
+
+char	**free_spl(char **spl)
+{
+    size_t	i = 0;
+
+    if (!spl)
+        return (NULL);
+    while (spl[i])
+    {
+        free(spl[i]);
+        i++;
+    }
+    free(spl);
+    return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
@@ -46,26 +61,20 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (s[i]) //abc;abc;abc;abc;
+	while (s[i])
 	{
-		start = i;
-		if (s[i] != c)
-		{
-			while (s[i] != c)
-				i++;
-			spl[j++] = ft_substr(s, start, i - start);
-		}
-		else
+		while (s[i] == c && s[i])
 			i++;
+		start = i;
+		while (s[i] != c && s[i])
+			i++;
+        if (i > start)
+        {
+            spl[j] = ft_substr(s, start, i - start);
+            if (!spl[j++])
+                return (free_spl(spl));
+        }
 	}
 	spl[j] = NULL;
 	return (spl);
 }
-
-// int main()
-// {
-// 	char * * tab;
-// 	char * splitme = strdup("Tripouille");
-// 	tab = ft_split(splitme, ' ');
-// 	return 0;
-// }
