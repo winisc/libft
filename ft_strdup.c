@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 20:00:18 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/16 17:57:54 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/19 16:01:52 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strdup(const char *src)
 	str = (char *)malloc((ft_strlen(src) + 1) * sizeof(char));
 	i = 0;
 	if (!str)
-		return (NULL);
+		return (0);
 	while (src[i])
 	{
 		str[i] = src[i];

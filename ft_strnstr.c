@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:35:51 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/18 17:05:09 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/19 16:01:49 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		}
 		i++;
 	}
-	return (NULL);
+	return (0);
 }

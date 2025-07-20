@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/17 12:40:10 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/19 16:01:51 by wsilveir         ###   ########.fr       */
+/*   Created: 2025/07/19 16:57:47 by wsilveir          #+#    #+#             */
+/*   Updated: 2025/07/19 19:48:53 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	size_t	i;
-	char	*str;
-
-	str = malloc((ft_strlen(s) + 1) * sizeof(char));
-	if (!str)
-		return (0);
-	i = 0;
-	while (s[i])
+	t_list	*n_node;
+	
+	while(*lst)
 	{
-		str[i] = f(i, s[i]);
-		i++;
+		n_node = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = n_node;
 	}
-	str[i] = 0;
-	return (str);
+	free(*lst);
+	lst = 0;
 }

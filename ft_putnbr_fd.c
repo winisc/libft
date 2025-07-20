@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/17 12:40:10 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/19 16:01:51 by wsilveir         ###   ########.fr       */
+/*   Created: 2025/07/19 12:45:25 by wsilveir          #+#    #+#             */
+/*   Updated: 2025/07/19 14:12:23 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
-	char	*str;
+	char	ld;
+	int		rd;
+	int		ne;
 
-	str = malloc((ft_strlen(s) + 1) * sizeof(char));
-	if (!str)
-		return (0);
-	i = 0;
-	while (s[i])
+	ne = 0;
+	ld = n % 10;
+	rd = n / 10;
+	if (ld < 0)
 	{
-		str[i] = f(i, s[i]);
-		i++;
+		ld = ld * -1;
+		ne = 1;
 	}
-	str[i] = 0;
-	return (str);
+	ld = ld + '0';
+	if (rd != 0)
+		ft_putnbr_fd (rd, fd);
+	else
+	{
+		if (ne == 1)
+			write (fd, "-", 1);
+	}
+	write (fd, &ld, 1);
 }

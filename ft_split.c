@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wini <wini@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:46:36 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/19 01:38:19 by wini             ###   ########.fr       */
+/*   Updated: 2025/07/19 20:25:56 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
 static size_t	count_words(char const *str, char c)
 {
@@ -34,19 +33,17 @@ static size_t	count_words(char const *str, char c)
 	return (len);
 }
 
-char	**free_spl(char **spl)
+static char	**free_spl(char **spl)
 {
-    size_t	i = 0;
+	size_t	i;
 
-    if (!spl)
-        return (NULL);
-    while (spl[i])
-    {
-        free(spl[i]);
-        i++;
-    }
-    free(spl);
-    return (NULL);
+	i = 0;
+	if (!spl)
+		return (0);
+	while (spl[i])
+		free (spl[i++]);
+	free (spl);
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
@@ -58,7 +55,7 @@ char	**ft_split(char const *s, char c)
 
 	spl = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!spl)
-		return (NULL);
+		return (0);
 	i = 0;
 	j = 0;
 	while (s[i])
@@ -68,13 +65,12 @@ char	**ft_split(char const *s, char c)
 		start = i;
 		while (s[i] != c && s[i])
 			i++;
-        if (i > start)
-        {
-            spl[j] = ft_substr(s, start, i - start);
-            if (!spl[j++])
-                return (free_spl(spl));
-        }
+		if (i > start)
+		{
+			spl[j] = ft_substr(s, start, i - start);
+			if (!spl[j++])
+				return (free_spl(spl));
+		}
 	}
-	spl[j] = NULL;
-	return (spl);
+	return (spl[j] = 0, spl);
 }

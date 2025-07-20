@@ -6,7 +6,7 @@
 #    By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/09 13:00:48 by wsilveir          #+#    #+#              #
-#    Updated: 2025/07/17 20:08:15 by wsilveir         ###   ########.fr        #
+#    Updated: 2025/07/19 15:17:01 by wsilveir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJS = $(SRCS:.c=.o)
 CC = cc
 FLAGS = -Wall -Wextra -Werror
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
 
 all: $(NAME)
 

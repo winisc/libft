@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 16:53:30 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/18 16:57:16 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/19 16:01:59 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		return (ptr);
 	}
 	if (size != 0 && nmemb * size / size != nmemb)
-		return (NULL);
+		return (0);
 	ptr = (char *)malloc(nmemb * size);
 	if (!ptr)
 		return (0);

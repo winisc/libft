@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/17 12:40:10 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/19 16:01:51 by wsilveir         ###   ########.fr       */
+/*   Created: 2025/07/19 16:58:58 by wsilveir          #+#    #+#             */
+/*   Updated: 2025/07/19 21:50:02 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	i;
-	char	*str;
-
-	str = malloc((ft_strlen(s) + 1) * sizeof(char));
-	if (!str)
-		return (0);
-	i = 0;
-	while (s[i])
-	{
-		str[i] = f(i, s[i]);
-		i++;
-	}
-	str[i] = 0;
-	return (str);
+    t_list *list;
+    t_list *node;
+    
+    if (!lst || !f || !del)
+        return (NULL);
+    list = NULL;
+    while (lst)
+    {
+        node = ft_lstnew(f(lst->content));
+        if (!node)
+            return (ft_lstclear(&list, del), NULL);
+        ft_lstadd_back(&list, node);
+        lst = lst->next;
+    }
+    return (list);
 }
