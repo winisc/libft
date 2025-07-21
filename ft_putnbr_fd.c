@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 12:45:25 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/19 14:12:23 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/21 16:59:33 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,17 @@ void	ft_putnbr_fd(int n, int fd)
 	int		rd;
 	int		ne;
 
-	ne = 0;
 	ld = n % 10;
 	rd = n / 10;
-	if (ld < 0)
-	{
+	ne = (n < 0);
+	if (ne)
 		ld = ld * -1;
-		ne = 1;
-	}
 	ld = ld + '0';
 	if (rd != 0)
 		ft_putnbr_fd (rd, fd);
 	else
 	{
-		if (ne == 1)
+		if (ne)
 			write (fd, "-", 1);
 	}
 	write (fd, &ld, 1);

@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/12 12:39:11 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/21 17:21:04 by wsilveir         ###   ########.fr       */
+/*   Created: 2025/07/19 16:57:47 by wsilveir          #+#    #+#             */
+/*   Updated: 2025/07/21 16:23:30 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	size_t	i;
+	t_list	*n_node;
 
-	i = 0;
-	while (i < n)
+	while (*lst)
 	{
-		if (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i] != 0)
-			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
-		i ++;
+		n_node = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = n_node;
 	}
-	return (0);
+	free(*lst);
+	lst = 0;
 }

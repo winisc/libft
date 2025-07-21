@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 10:19:48 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/12 16:27:07 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/21 15:55:38 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 void	*ft_bzero(void *str, size_t n)
 {
-	size_t			i;
-
-	i = 0;
-	while (i < n)
-		((unsigned char *)str)[i++] = 0;
+	while (n > 0)
+		((unsigned char *)str)[--n] = 0;
 	return (str);
 }

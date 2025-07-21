@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 14:48:47 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/12 15:54:11 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/21 17:18:45 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			return ((void *)((unsigned char *)s + i));
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

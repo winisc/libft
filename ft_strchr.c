@@ -6,7 +6,7 @@
 /*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:36:02 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/19 16:01:52 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/21 17:19:13 by wsilveir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (s[i] == (char) c)
 		return ((char *)s + i);
-	return (0);
+	return (NULL);
 }
