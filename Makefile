@@ -6,11 +6,12 @@
 #    By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/09 13:00:48 by wsilveir          #+#    #+#              #
-#    Updated: 2025/07/21 17:11:28 by wsilveir         ###   ########.fr        #
+#    Updated: 2025/07/21 19:42:04 by wsilveir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+HDRS = libft.h
 
 SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 	   ft_isdigit.c ft_isprint.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c \
@@ -35,11 +36,11 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $@ $^
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $^
+bonus:
+	@$(MAKE) OBJS="$(OBJS) $(BONUS_OBJS)"
 
 %.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(FLAGS) -I $(HDRS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
