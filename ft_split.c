@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wini <wini@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:46:36 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/21 17:19:26 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/22 23:55:32 by wini             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ static char	**free_spl(char **spl)
 
 	i = 0;
 	if (!spl)
-		return (0);
+		return (NULL);
 	while (spl[i])
 		free (spl[i++]);
 	free (spl);
-	return (0);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wini <wini@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 16:57:47 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/21 17:06:33 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/07/22 13:05:11 by wini             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 		free(*lst);
 		*lst = n_node;
 	}
-	free(*lst);
-	lst = NULL;
+	*lst = NULL;
 }
