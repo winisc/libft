@@ -6,7 +6,7 @@
 /*   By: wini <wini@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:46:36 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/22 23:55:32 by wini             ###   ########.fr       */
+/*   Updated: 2025/07/23 23:52:26 by wini             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	**ft_split(char const *s, char c)
 	size_t	start;
 	size_t	word;
 
-	spl = malloc((count_words(s, c) + 1) * sizeof(char *));
+	spl = ft_calloc((count_words(s, c) + 1), sizeof(char *));
 	if (!spl)
 		return (NULL);
 	i = 0;
@@ -73,5 +73,5 @@ char	**ft_split(char const *s, char c)
 				return (free_spl(spl));
 		}
 	}
-	return (spl[word] = NULL, spl);
+	return (spl);
 }
