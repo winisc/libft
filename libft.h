@@ -6,7 +6,7 @@
 /*   By: wini <wini@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 19:33:53 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/23 00:45:50 by wini             ###   ########.fr       */
+/*   Updated: 2025/08/10 05:51:47 by wini             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int		ft_isdigit(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
 
+void	ft_bzero(void *str, size_t n);
 void	*ft_memset(void *str, int c, size_t n);
-void	*ft_bzero(void *str, size_t n);
 void	*ft_memcpy(void *dest_str, const void *src_str, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
