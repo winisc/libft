@@ -6,32 +6,31 @@
 /*   By: wini <wini@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 17:46:36 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/23 23:52:26 by wini             ###   ########.fr       */
+/*   Updated: 2025/08/10 05:31:46 by wini             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	count_words(char const *str, char c)
+static size_t	count_words(const char *str, char c)
 {
-	int	i;
-	int	len;
+	size_t	count;
+	int		i;
 
+	count = 0;
 	i = 0;
-	len = 0;
 	while (str[i])
 	{
-		if (str[i] != c)
-		{
-			len++;
+		while (str[i] == c)
 			i++;
-			while (str[i] != c && str[i])
+		if (str[i])
+		{
+			count++;
+			while (str[i] && str[i] != c)
 				i++;
 		}
-		else
-			i++;
 	}
-	return (len);
+	return (count);
 }
 
 static char	**free_spl(char **spl)

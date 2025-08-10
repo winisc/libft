@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wsilveir <wsilveir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wini <wini@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 17:34:18 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/21 17:15:45 by wsilveir         ###   ########.fr       */
+/*   Updated: 2025/08/10 05:07:13 by wini             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		res *= 10;
-		res += str[i] - '0';
+		res = res * 10 + str[i] - '0';
 		i++;
 	}
 	return (res * n);

@@ -6,7 +6,7 @@
 /*   By: wini <wini@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 10:43:59 by wsilveir          #+#    #+#             */
-/*   Updated: 2025/07/23 00:42:41 by wini             ###   ########.fr       */
+/*   Updated: 2025/08/10 05:17:16 by wini             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static size_t	length(int num)
 		i++;
 	while (num != 0)
 	{
-		num = num / 10;
+		num /= 10;
 		i++;
 	}
 	return (i);
@@ -29,26 +29,26 @@ static size_t	length(int num)
 
 char	*ft_itoa(int n)
 {
-	int		ne;
+	int		is_neg;
 	int		len;
-	int		num;
+	long	num;
 	char	*str;
 
+	num = n;
 	len = length(n);
 	str = (char *)malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (0);
-	str[len] = 0;
-	ne = (n < 0);
+	str[len] = '\0';
+	is_neg = (num < 0);
+	if (is_neg)
+		num = -num;
 	while (len > 0)
 	{
-		num = n % 10;
-		if (ne)
-			num = -num;
-		str[--len] = num + '0';
-		n = n / 10;
+		str[--len] = (num % 10) + '0';
+		num /= 10;
 	}
-	if (ne)
+	if (is_neg)
 		str[0] = '-';
 	return (str);
 }
